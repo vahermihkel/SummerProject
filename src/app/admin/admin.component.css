@@ -1,0 +1,13 @@
+.login {
+    align-items: center;
+    min-width: 250px;
+}
+
+.alert-danger {
+    margin-left: 25%;
+    margin-right: 50%;
+    width: 25%;
+    display: block;
+    margin: auto;
+    margin-bottom: 1%;
+}

@@ -1,0 +1,46 @@
+.isDeleted {
+  border: solid 2px rgb(241, 121, 121);
+  border-radius: 10px;
+}
+
+.notDeleted {
+  border: solid 2px #75b6ab;
+  border-radius: 10px;
+}
+
+.list-group-item {
+  overflow-x: auto;
+  display: flex;
+  justify-content: left;
+  padding-left: 11vw;
+  min-width: 300px;
+  margin: 0% 30% 0% 30%;
+  box-shadow: 0 0 5px 5px rgb(243, 243, 243);
+  
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.mat-form-field {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.yearFilter {
+  left: 41%;
+}
+
+.matOption {
+  /* margin-top: 100px; */
+  /* padding-top: 100px; */
+}
+
+.list-group-item:hover{
+  transition: .3s all;
+  cursor: pointer;
+  box-shadow: 0 8px 17px 0 rgba(212, 29, 70, 0.05), 0 6px 20px 0 rgba(0,0,0,.15);
+  transition: transform 0.3s;
+  transform: scale(1.02);
+}

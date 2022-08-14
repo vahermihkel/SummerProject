@@ -1,0 +1,24 @@
+.alert-box {
+  display: block;
+  position: fixed;
+  top: 30vh;
+  margin-top: -100px;
+  left: 7vw;
+  right: 7vw;
+  padding: 13%;
+  z-index: 100;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+p {
+  padding: 5rem 0 0;
+  margin: 0;
+  line-height: 0.8;
+}
+
+img {
+  min-height: 25px;
+  height: 6vw;
+}

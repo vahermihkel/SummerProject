@@ -1,0 +1,47 @@
+::ng-deep .mat-form-field-subscript-wrapper {
+    font-size: 100% !important;
+    margin-top: .8em !important;
+    top: calc(100% - 1.7916666667em) !important;
+    padding: 5px !important;    
+}
+
+::ng-deep .mat-form-field-infix {
+    padding: .5em 0 !important;
+    border-top: .84375em solid transparent !important;
+}
+
+::ng-deep .mat-form-field {
+    font-size: inherit !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+    letter-spacing: normal !important;
+}
+
+::ng-deep .mat-toolbar.mat-primary {
+    background: #6bcaba !important;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.grid-item1 {
+    grid-column: 1/5;
+    grid-row: 1;
+}
+
+.importantText {
+    font-size: large;
+}
+
+.formStyle {
+    min-width: 250px;
+}
+
+ngg-deep .toast-container .toast-container--bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+}

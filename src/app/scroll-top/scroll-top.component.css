@@ -1,0 +1,35 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+    border: none;
+    color: white;
+    padding-top: 5px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+    color: #333333;
+    font-size: large;
+    font-weight: bold;
+}
+
+.btn {
+    color: #4e4e4e !important;
+    background-color: #ffffff !important;
+    border-color: #4e4e4e !important;
+    border-radius: 100%;
+    transition: background-color .2s, border-color .2s;
+}
+
+.btn:hover {
+    color: #ffffff !important;
+    background-color: #75b6ab !important;
+    border-color: #6bcaba !important;
+    border-radius: 100%;
+}

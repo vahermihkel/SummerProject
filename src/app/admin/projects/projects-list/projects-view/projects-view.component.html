@@ -1,0 +1,60 @@
+<br><a routerLink="../.." class="backButton">< Tagasi</a>
+
+<div class="text-center-header"> {{project.name}} </div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="list-group-item clearfix" >
+      <div class="plainText"> <div class="textBigger">Projektis osalevad inimesed:</div> 
+        <span *ngFor="let student of project.students; let i = index"><br>
+          <span *ngIf="project.students.length > 0">
+            <button (click)="onDeleteStudent(project, i)" class=closeButton>x</button>
+            <b>{{ student.name }}</b>
+          </span>
+        </span>
+        <span *ngIf="!project.students || project.students == []">
+          <br> <span><i>Üliõpilasi pole veel registreerunud</i></span>
+        </span>
+      </div> <hr>
+      <div class="plainText">
+        Projekti Github link:
+        <span *ngIf="project.github">
+          <button (click)="onDeleteGithub(project)" class=closeButton>x</button> 
+          <b>{{project.github}}</b>
+        </span>
+        <span *ngIf="!project.github">
+          <span><i>Githubi linki pole sisestatud</i></span>
+        </span>
+      </div>
+      <div class="plainText">
+        Projekti blogi aadress: 
+        <span *ngIf="project.blog">
+          <button (click)="onDeleteBlog(project)" class=closeButton>x</button> 
+          <b>{{project.blog}} </b>
+        </span>
+        <span *ngIf="!project.blog">
+          <span><i>Blogi linki pole sisestatud</i></span>
+        </span>
+      </div>
+      <div class="plainText">
+        Projekti enda URL aadress: 
+        <span *ngIf="project.url">
+          <button (click)="onDeleteURL(project)" class=closeButton>x</button> 
+          <b>{{project.url}}</b>
+        </span>
+        <span *ngIf="!project.url">
+          <span><i>Projekti URL linki pole sisestatud</i></span>
+        </span>
+      </div>
+      <div class="plainText">
+        Projekti ülevaataja: 
+        <span *ngIf="project.overviewer">
+          <button (click)="onDeleteReviewer(project)" class=closeButton>x</button> 
+          <b>{{project.overviewer}}</b>
+        </span>
+        <span *ngIf="!project.overviewer">
+          <span><i>Projekti ülevaatajat pole sisestatud</i></span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div *ngIf="!isLoading">
+    <div class="text-center-header">Registreeri siit uus kasutaja:</div>
+<br><br>
+
+<form (ngSubmit)="onSignUp(signupForm)" #signupForm="ngForm">
+    <div class="form-group">
+        <label>Rühma number:</label>
+        <input
+            ngModel 
+            name="number"
+            type="number" 
+            class="form-control" 
+            id="number">    
+    </div>
+    <div class="form-group">
+        <label>Kasutaja projekt:</label>
+          <form #form="ngForm">
+            <mat-form-field>
+              <mat-label class="matLabel">Vali projekt</mat-label>
+              <mat-select matInput name="mySelect" class="matSelect">
+                <mat-option *ngFor="let project of projects" [value]="project.name" class="matOption">{{project.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+    </div>
+    <div class="form-group">
+        <label>Sisselogimiseks e-mail:</label>
+        <input
+            ngModel 
+            name="username"
+            type="text" 
+            class="form-control" 
+            id="username">    
+    </div>
+    <div class="form-group">
+        <label>Kasutaja parool:</label>
+        <input 
+            ngModel 
+            name="password"
+            type="text" 
+            class="form-control" 
+            id="password">    
+    </div>
+    <br>
+    <button 
+            [disabled]="false" 
+            class="btn btn-dti mt-3">SISESTA</button>
+</form>
+</div>
+<div *ngIf="isLoading" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div *ngIf="error" class="alert alert-danger">Tuli error: <br><br> {{error}}</div>

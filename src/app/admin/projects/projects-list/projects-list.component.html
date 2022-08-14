@@ -1,0 +1,75 @@
+<div *ngIf="projects.length > 0 && !isFetching">
+    <div class="text-center-header">Kõik seni esitatud projektid: </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <ng-container *ngFor="let project of projects">
+                <div
+                    class="list-group-item clearfix" 
+                    [ngClass]="[project.visible ? 'isActive' : 'notActive']"
+                    *ngIf="!project.deleted">
+                    <div>
+                        <label (change)="saveOnClick(project)">
+                            <input
+                                type="checkbox">
+                            <div class="list-group-item-header">
+                                <div class="list-group-item-date">
+                                    Esitatud: {{ project.insertedDate | date:'dd.MM.yyyy'}}
+                                </div>
+                                <button
+                                    *ngIf="!project.visible"
+                                    (click)="onDeleteProject(project)" 
+                                    class="list-group-item-delete-button">
+                                    X</button>
+                            </div>
+                            <div class="list-group-item-heading">
+                                Projekti nimi: <b> {{ project.name }} </b>
+                            </div>
+                            <div class="list-group-item-description">
+                                Projekti sisu: {{ project.description }} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </div>
+                            <hr>
+                            <div class="list-group-item-additional">
+                                Tudengite toetuseks: {{ project.additional }}
+                            </div>
+                            <div class="list-group-item-support">
+                                Lisainformatsioon: {{ project.support }}
+                            </div>
+                            <div class="list-group-item-contact">
+                                Projekti esitas: {{ project.contactName }}
+                                (telefoninumber: {{ project.contactPhone }},
+                                e-mail: {{ project.contactEmail }})
+                            </div>
+                        </label>
+                        <div class="buttons" *ngIf="!project.visible; else projectVisible">
+                            <button class="btn btn-dti" (click)="showCommentAdd(project)">Pane kirja kommentaar</button>
+                            <button 
+                                class="btn btn-dti" 
+                                [routerLink]="['edit',project.firebaseId]">Muuda projekti (ka andmebaasis!)</button>
+                        </div>
+                        <ng-template #projectVisible>
+                            <button class="btn btn-dti" [routerLink]="['view',project.firebaseId]">Vaata projekti seisu</button>
+                        </ng-template >
+                        <div *ngFor="let comment of project.comments; let i = index" class="extraQuestion">
+                            <button (click)="onDeleteComment(project, i) " class=closeButton>x</button> {{ comment }}
+                        </div>
+                        <form (ngSubmit)="onAddQuestion(project, projectsForm)" #projectsForm="ngForm">
+                            <div *ngIf="project.commentButtonActive && !project.visible" class="extraQuestion">
+                                <input type="text" class="form-control" ngModel name="itemQuestion">
+                                <button class="btn btn-dti">✓</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="projects.length<1 && !isFetching && !error">
+    <div class="text-center-header">Ühtegi aktiivset projekti pole</div>
+    <div>See tähendab, et oled kõik projektid eemaldanud ja ühtegi pole seni esitatud. 
+        Eelmiste projektide taaslisamiseks mine menüüs "Eelmised projektid" vaatesse ja saad neid uuesti aktiveerida.</div>
+</div>
+<div *ngIf="isFetching && !error" class="text-center-header" style="text-align: center;">  <app-loading-spinner></app-loading-spinner></div>
+<div *ngIf="error" class="alert alert-danger">Tuli error: <br><br> {{error.message}}</div>

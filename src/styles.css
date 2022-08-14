@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap');
+* {
+    font-family: "Baloo Tammudu 2";
+}
+
+.btn-dti {
+    color: #ffffff !important;
+    background-color: #75b6ab !important;
+    border-color: #6bcaba !important;
+    font-size: 2rem !important;
+    display: block !important;
+    margin: auto !important;
+    padding-top: 12px !important;
+}
+
+.btn-dti:hover,
+.btn-dti:focus,
+.btn-dti:active,
+.btn-dti:active,
+.open>.dropdown-toggle.btn-dti {
+    color: #fff !important;
+    background-color: #36ccb2 !important;
+    border-color: #ffffff !important;
+    outline: none !important;
+}
+
+.btn-dti:disabled {
+    color: #ffffff !important;
+    background-color: #b1ddd6 !important;
+    border-color: #b1ddd6 !important;
+}
+
+.middleHeader {
+    font-size: 3vw;
+    margin-top: 15vw;
+    text-align: center;
+}
+
+.requiredRed {
+    color: red;
+}
+
+.contact {
+    margin-bottom: 10vw;
+    text-align: center;
+}
+
+form {
+    margin-left: 25%;
+    margin-right: 50%;
+    width: 25%;
+    display: block;
+    margin: auto;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border: solid 1px red;
+}
+
+.form-control {
+    box-shadow: 10px 10px 30px 0 rgba(126, 127, 128, 0.16) !important;
+}
+
+.header {
+    font-size: 3rem;
+    margin: auto;
+    width: 20%;
+    font-weight: 1000;
+}
+
+.hero {
+    height: 400px;
+    width: auto;
+    margin: 0 6px;
+    background: url("assets/header1.jpg");
+    background-size: 100%;
+    background-position: 0 20%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-image: url(http://ran.ge/content/uploads/2009/11/logo-trimmed.png);
+}
+
+.mat-divider {
+    display: block;
+    margin: 0;
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+
+.mat-divider {
+    border-top-color: rgba(0, 0, 0, .12);
+}
+
+.rectangle {
+    height: 5px;
+    width: 100px;
+    background-color: #6BCABA;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-no-padding-dialog {
+    margin-top: -50px;
+    padding: 0;
+}
+
+.custom-darker-modal-backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.bold-center {
+    font-size: 10rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.text-center {
+    font-size: 5rem;
+    text-align: center;
+}
+
+.text-center-header {
+    margin-top: 50px;
+    font-size: 5rem;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1;
+}

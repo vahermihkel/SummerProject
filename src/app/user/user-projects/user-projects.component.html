@@ -1,0 +1,71 @@
+<lib-toastify-toast-container 
+[position]="'bottom-right'"
+[transition]="'bounce'" 
+[autoClose]="5000"
+[hideProgressBar]="false"
+[newestOnTop]="false"
+[closeOnClick]="true"
+[pauseOnHover]="true"
+[pauseOnVisibilityChange]="true"
+[iconLibrary]="'material'"
+></lib-toastify-toast-container>
+
+<div class="text-center-header">Kõik saadavalolevad projektid aastal {{ year }}: </div>
+<br>
+<div class="rectangle"></div>
+<br>
+<div class="row">
+    <div class="col-xs-12">
+        <ng-container 
+            *ngFor="let project of projects">
+            <div class="list-group-item clearfix" *ngIf="project.visible">
+                <div>
+                    <label>
+                        <div class="list-group-item-heading">
+                            Projekti nimi: <b> {{ project.name }} </b>
+                        </div>
+                        <div class="list-group-item-description">
+                            Projekti sisu: {{ project.description }} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </div>
+                    </label>
+                </div>
+                <div class="registrations">
+                    <button *ngIf="!project.github || !project.blog || !project.url" class="btn btn-dti" (click)="showCommentInfo(project)">Lisa projekti info</button>
+                    <button *ngIf="project.students.length < 5" class="btn btn-dti" (click)="showRegisterButton(project)">Registreeru projekti</button><span>Registreerunuid: {{ project.students.length }}  /5</span>
+                </div>
+                <form (ngSubmit)="onSubmitInfo(project, infoForm)" #infoForm="ngForm" class="forms">
+                    <div *ngIf="project.addInfoButtonActive && (!project.github || !project.blog || !project.url)">
+                        <div *ngIf="!project.github">
+                            Githubi link: <input type="text" class="form-control" ngModel name="github">
+                            <br>
+                        </div>
+                        <div *ngIf="!project.blog">
+                        Blogi link: <input type="text" class="form-control" ngModel name="blog">
+                        <br>
+                        </div>
+                        <div *ngIf="!project.url">
+                        URL link: <input type="text" class="form-control" ngModel name="url">
+                        <br>
+                        </div>
+                        <button class="btn btn-dti">Sisesta</button>
+                    </div>
+                </form>
+                <form (ngSubmit)="onSubmitRegistration(project, registrationForm)" #registrationForm="ngForm" class="forms">
+                    <div *ngIf="project.registrationButtonActive && project.students.length < 5">
+                        Ees- ja perekonnanimi: <input type="text" class="form-control" ngModel name="student" required>
+                        <br>
+                        Õppesuund:
+                        <mat-form-field>
+                            <mat-label class="matLabel">Vali suund</mat-label>
+                            <mat-select matInput class="matSelect" ngModel name="suund" required>
+                              <mat-option *ngFor="let suund of suunds" [value]="suund" class="matOption">{{suund}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        <br>
+                        <button [disabled]="!registrationForm.valid" class="btn btn-dti">Registreeru</button>
+                    </div>
+                </form>
+            </div>
+        </ng-container>
+    </div>
+</div>

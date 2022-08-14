@@ -1,0 +1,16 @@
+.mat-input-wrapper{
+  width:100% !important;
+  margin-right: 25%;
+}
+
+.matSelect {
+  padding-top: 50px;
+  /* margin-top: 50px; */
+}
+
+.matOption {
+}
+
+.matLabel {
+  margin-top: 20px;
+}

@@ -1,0 +1,48 @@
+<lib-toastify-toast-container 
+[position]="'bottom-right'"
+[transition]="'bounce'" 
+[autoClose]="5000"
+[hideProgressBar]="false"
+[newestOnTop]="false"
+[closeOnClick]="true"
+[pauseOnHover]="true"
+[pauseOnVisibilityChange]="true"
+[iconLibrary]="'material'"
+></lib-toastify-toast-container>
+
+<div class="text-center-header">Sisesta uus projekt</div>
+<div class="rectangle"></div>
+<br><br>
+
+<form (ngSubmit)="onAddNewProject(newProjectForm)" #newProjectForm="ngForm" class="newProject">
+    <div class="form-group half">
+        <label>Projekti nimi: <span class="requiredRed">*</span></label>
+        <input ngModel name="project_name" type="text" class="form-control" id="project_name" required>
+    </div>
+    <div class="form-group">
+        <label>Projekti lühikirjeldus: <span class="requiredRed">*</span></label>
+        <textarea ngModel name="description" type="text" class="form-control" id="description" required></textarea>
+    </div>
+    <div class="form-group">
+        <label>Kuidas saab idee pakkunu toetada tudengit:</label>
+        <textarea ngModel name="support" type="text" class="form-control" id="support"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Lisainformatsioon:</label>
+        <textarea ngModel name="additional" type="text" class="form-control" id="additional"></textarea>
+    </div>
+    <div class="form-group half">
+        <label>Idee pakkunu nimi: <span class="requiredRed">*</span></label>
+        <input ngModel name="name" type="text" class="form-control half" id="name" required>
+    </div>
+    <div class="form-group half">
+        <label>Idee pakkunu e-mail: <span class="requiredRed">*</span></label>
+        <input ngModel name="email" type="email" class="form-control" id="email" required>
+    </div>
+    <div class="form-group half">
+        <label>Idee pakkunu telefoninumber:</label>
+        <input ngModel name="phone" type="tel" class="form-control half" id="phone">
+    </div>
+    <button [disabled]="!newProjectForm.valid" class="btn btn-dti mt-3">SAADA</button>
+</form>
+

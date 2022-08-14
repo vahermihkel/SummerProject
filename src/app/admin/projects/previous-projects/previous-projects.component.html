@@ -1,0 +1,51 @@
+<div *ngIf="projects.length > 0 && !isFetching">
+  <div class="text-center-header">Kõik projektid andmebaasis: </div>
+  <br>
+  <mat-form-field class="yearFilter">
+    <mat-label class="matLabel">Vali projekti aasta</mat-label>
+    <mat-select matInput class="matSelect" [(ngModel)]="chosenYear">
+      <mat-option [value]="" class="matOption">{{ 'Kõik' }}</mat-option>
+      <mat-option *ngFor="let project of projects | unique" [value]="project.year" class="matOption">{{project.year}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <div class="row">
+      <div class="col-xs-12">
+          <ng-container *ngFor="let project of projects | filterByYear:chosenYear">
+              <label
+                  (change)="saveOnClick(project)"
+                  class="list-group-item clearfix" 
+                  [ngClass]="[project.deleted ? 'isDeleted' : 'notDeleted']">
+                          <input
+                              type="checkbox">
+                          <div class="list-group-item-header">
+                              <div class="list-group-item-date">
+                                  Projekti aasta: 
+                                  <span *ngIf="project.year != 'Pole alustatud'"> {{ project.year }} </span>
+                                  <span *ngIf="project.year == 'Pole alustatud'"> <i>{{ project.year }} </i></span>
+                              </div>
+                              <div class="list-group-item-name">
+                                  Projekti nimi: <b> {{ project.name }} </b>
+                              </div>
+                              <div class="list-group-item-users">
+                                Projekti tegijad: <b> 
+                                    <span *ngFor="let student of project.students; let i = index">
+                                        {{ student.name }} {{i === project.students.length -1 ? '' : ',&nbsp;' }}
+                                    </span></b>
+                                    <span *ngIf="!project.students && project.year == 'Pole alustatud'">
+                                       <i>Keegi pole registreerunud</i> 
+                                    </span>
+                            </div>
+                          </div>
+                </label>
+                <br>
+          </ng-container>
+      </div>
+  </div>
+
+</div>
+<div *ngIf="projects.length<1 && !isFetching && !error">
+  <div class="text-center-header">Ühtegi projekti pole</div>
+  </div>
+<div *ngIf="isFetching && !error" class="text-center-header" style="text-align: center;">  <app-loading-spinner></app-loading-spinner></div>
+<div *ngIf="error" class="alert alert-danger">Tuli error: <br><br> {{error.message}}</div>

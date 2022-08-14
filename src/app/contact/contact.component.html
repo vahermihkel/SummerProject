@@ -1,0 +1,54 @@
+<lib-toastify-toast-container 
+[position]="'bottom-left'"
+[transition]="'bounce'" 
+[autoClose]="5000"
+[hideProgressBar]="false"
+[newestOnTop]="false"
+[closeOnClick]="true"
+[pauseOnHover]="true"
+[pauseOnVisibilityChange]="true"
+[iconLibrary]="'material'"
+></lib-toastify-toast-container>
+
+<br><br><br>
+<p class="middleHeader">Kontakt</p>
+<div class="rectangle"></div>
+<br><br>
+
+<div class="grid-container">
+    <div class="grid-item1">
+        <div id="destination" #destinationRef></div>
+        <p class="contact importantText">IDEE ESITAMISEKS TÄIDA VORM <a routerLink="/new">SIIN</a> </p>
+        <br>
+        <p class="contact">Küsimused jäid veel vastamata? Kirjuta meile otse! </p>
+        <br>
+        <form (ngSubmit)="onSubmitForm(contactForm)" #contactForm="ngForm" class="formStyle">
+            <div class="form-group">
+                <label>Nimi: <span class="requiredRed">*</span></label>
+                <input ngModel type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Email address: <span class="requiredRed">*</span></label>
+                <input ngModel type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Telefoninumber: </label>
+                <input ngModel type="tel" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label>Teema: <span class="requiredRed">*</span></label>
+                <input ngModel type="subject" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label>Kiri: <span class="requiredRed">*</span></label>
+                <textarea ngModel type="message" class="form-control" id="message" name="message" required></textarea>
+            </div>
+            <button [disabled]="!contactForm.valid" class="btn btn-dti">SAADA</button>
+        </form>
+    </div>  
+</div>
+<br><br><br>
+<mat-divider _ngcontent-c1="" class="mat-divider mat-divider-horizontal" role="separator" aria-orientation="horizontal">
+</mat-divider>
+<br>
+<app-footer></app-footer>

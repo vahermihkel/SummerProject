@@ -1,0 +1,52 @@
+<br><a routerLink="../.." class="backButton">< Tagasi</a>
+
+<div class="text-center-header">Muudad projekti: </div>
+<div class="header-project-name"> {{ project.name }} </div>
+
+<br>
+<div *ngIf="isSaving" class="text-center-header" style="text-align: center;">  <app-loading-spinner></app-loading-spinner></div>
+<br>
+<div class="row">
+    <div class="col-xs-12">
+            <form [formGroup]="projectForm" (ngSubmit)="onSubmit(projectForm)">
+            <div 
+                class="list-group-item clearfix" 
+                *ngIf="!project.deleted">
+                <div class="form-group half">
+                    <label>Projekti nimi: <span class="requiredRed">*</span></label>
+                    <input formControlName="name" name="name" type="text" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Projekti lühikirjeldus: <span class="requiredRed">*</span></label>
+                    <textarea formControlName="description" name="description" type="text" class="form-control" id="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Kuidas saan toetada tudengit:</label>
+                    <textarea formControlName="support" name="support" type="text" class="form-control" id="support"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Kas soovid veel midagi lisada?</label>
+                    <textarea formControlName="additional" name="additional" type="text" class="form-control" id="additional"></textarea>
+                </div>
+                <div class="form-group half">
+                    <label>Nimi: <span class="requiredRed">*</span></label>
+                    <input formControlName="contactName" name="name" type="text" class="form-control half" id="name" required>
+                </div>
+                <div class="form-group half">
+                    <label>Email address: <span class="requiredRed">*</span></label>
+                    <input formControlName="contactEmail" name="email" type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group half">
+                    <label>Telefoninumber:</label>
+                    <input formControlName="contactPhone" name="phone" type="tel" class="form-control half" id="phone">
+                </div>
+                <div class="form-group half">
+                    <label>Projekti ülevaataja:</label>
+                    <input formControlName="overviewer" name="overviewer" type="text" class="form-control" id="overviewer">
+                </div>
+                <button [disabled]="!projectForm.valid" class="btn btn-dti">SALVESTA MUUDATUSED</button>
+            </div>
+            </form>
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+<br>
+<p class="text-center-header">Enne lehele minemist kinnita uuesti kasutajanimi ja parool: </p>
+<br><br>
+
+<form (ngSubmit)="onSubmit(authForm)" #authForm="ngForm">
+    <div class="form-group half">
+        <label>Kasutajanimi:</label>
+        <input
+            ngModel 
+            name="username"
+            type="text" 
+            class="form-control half" 
+            id="username">    
+    </div>
+    <div class="form-group half">
+        <label>Parool:</label>
+        <input 
+            ngModel 
+            name="password"
+            type="password" 
+            class="form-control half" 
+            id="password">    
+    </div>
+    <br>
+    <button 
+            [disabled]="false" 
+            class="btn btn-dti mt-3">KINNITA</button>
+</form>
